@@ -25,5 +25,5 @@ module.exports = function (myId, cookie, csrf) {
     }
   }
 
-  return new BAPI(myId, app_secret)
+  return new BAPI(myId, cookie, csrf)
 }
