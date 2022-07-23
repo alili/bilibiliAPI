@@ -6,7 +6,6 @@ const getList = async function (ts) {
 const getUnread = async function () {
   let url = 'https://api.bilibili.com/x/msgfeed/unread?build=0&mobi_app=web'
   let res = await this.axios.get(url)
-
   return res.data.data
 }
 const getStat = async function () {
@@ -30,6 +29,12 @@ const getArchives = async function () {
   const res = await this.axios.get(url)
   return res.data.data.arc_audits
 }
+const markreadReply = async function () {
+  let url = `https://api.bilibili.com/x/msgfeed/reply?platform=web&build=0&mobi_app=web`
+  let res = await http.get(url)
+
+  return res.data
+}
 
 module.exports = {
   getList,
@@ -38,4 +43,5 @@ module.exports = {
   getLiveList,
   getDynamics,
   getArchives,
+  markreadReply,
 }

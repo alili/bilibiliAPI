@@ -1,12 +1,6 @@
-const getComment = async function (pn = 1, ps = 20) {
+const getComment = async function (pn = 1, ps = 10) {
   let url = `https://member.bilibili.com/x/web/replies?order=ctime&filter=-1&is_hidden=0&type=1&comment_display=0&bvid=&pn=${pn}&ps=${ps}`
   let res = await this.axios.get(url)
-  return res.data.data
-}
-const getUnread = async function () {
-  let url = 'https://api.bilibili.com/x/msgfeed/unread?build=0&mobi_app=web'
-  let res = await this.axios.get(url)
-
   return res.data.data
 }
 const replyComment = async function (comment, message) {
@@ -44,7 +38,6 @@ const setLike = async function ({ oid, id }) {
 
 module.exports = {
   getComment,
-  getUnread,
   replyComment,
   setLike,
 }
