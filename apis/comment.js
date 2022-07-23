@@ -21,7 +21,7 @@ const replyComment = async function (comment, message) {
       message,
       plat: 1,
       jsonp: 'jsonp',
-      csrf,
+      csrf: this.csrf,
     })
   )
   return res
@@ -36,7 +36,7 @@ const setLike = async function ({ oid, id }) {
       rpid: id,
       action: 1,
       jsonp: 'jsonp',
-      csrf,
+      csrf: this.csrf,
     })
   )
   return res
