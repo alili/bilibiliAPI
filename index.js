@@ -1,10 +1,10 @@
 const axios = require('axios')
 
-const user = require('./user')
-const live = require('./live')
-const info = require('./info')
-const comment = require('./comment')
-const message = require('./message')
+const user = require('./api/user')
+const live = require('./api/live')
+const info = require('./api/info')
+const comment = require('./api/comment')
+const message = require('./api/message')
 
 module.exports = function (app_id, app_secret) {
   function BAPI(myId, cookie, csrf) {
