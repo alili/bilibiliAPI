@@ -5,6 +5,6 @@ const getUser = async function (mid) {
   return res.data.data
 }
 
-exports = {
+module.exports = {
   getUser,
 }

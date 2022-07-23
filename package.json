@@ -15,5 +15,11 @@
   "bugs": {
     "url": "https://github.com/alili/bilibiliAPI/issues"
   },
-  "homepage": "https://github.com/alili/bilibiliAPI#readme"
+  "homepage": "https://github.com/alili/bilibiliAPI#readme",
+  "dependencies": {
+    "axios": "^0.27.2"
+  },
+  "devDependencies": {
+    "chrome-cookies-secure": "^2.0.0"
+  }
 }

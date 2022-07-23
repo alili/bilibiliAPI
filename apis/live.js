@@ -1,4 +1,4 @@
-const qs = require('querystring')
+const qs = require('qs')
 
 const getRoomId = async function (roomId) {
   const url = `https://api.live.bilibili.com/room/v1/Room/room_init?id=${roomId}`
@@ -30,7 +30,7 @@ const sendDanmu = async function (roomId, msg) {
   return res.data
 }
 
-exports = {
+module.exports = {
   getRoomId,
   getLiveName,
   sendDanmu,

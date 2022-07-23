@@ -23,6 +23,6 @@ const sendMessage = async function (receiver_id, content) {
   )
 }
 
-exports = {
+module.exports = {
   sendMessage,
 }

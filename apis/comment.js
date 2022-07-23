@@ -42,7 +42,7 @@ const setLike = async function ({ oid, id }) {
   return res
 }
 
-exports = {
+module.exports = {
   getComment,
   getUnread,
   replyComment,
