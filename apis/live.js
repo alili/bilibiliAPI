@@ -11,23 +11,27 @@ const getLiveName = async function (roomId) {
   return res.data.data?.medal.up_medal?.medal_name
 }
 
-const sendDanmu = async function (roomId, msg) {
+const sendDanmu = async function (roomid, msg) {
   let url = 'https://api.live.bilibili.com/msg/send'
-  let res = await this.axios.post(
-    url,
-    qs.stringify({
-      bubble: 0,
-      msg,
-      color: '16738408',
-      mode: 1,
-      fontsize: '25',
-      rnd: '1639755575',
-      roomId,
-      csrf: this.csrf,
-      csrf_token: this.csrf,
-    })
-  )
-  return res.data
+  try {
+    let res = await this.axios.post(
+      url,
+      qs.stringify({
+        bubble: 0,
+        msg,
+        color: '16738408',
+        mode: 1,
+        fontsize: '25',
+        rnd: Math.round(new Date().getTime() / 1000).toString(),
+        roomid,
+        csrf: this.csrf,
+        csrf_token: this.csrf,
+      })
+    )
+    return res.data
+  } catch (error) {
+    console.log(`error:`, error)
+  }
 }
 
 module.exports = {
