@@ -6,7 +6,7 @@ const info = require('./apis/info')
 const comment = require('./apis/comment')
 const message = require('./apis/message')
 
-module.exports = function (app_id, app_secret) {
+module.exports = function (myId, cookie, csrf) {
   function BAPI(myId, cookie, csrf) {
     this.myId = myId
     this.cookie = cookie
