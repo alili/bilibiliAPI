@@ -1,3 +1,5 @@
+const qs = require('qs')
+
 const getComment = async function (pn = 1, ps = 10) {
   let url = `https://member.bilibili.com/x/web/replies?order=ctime&filter=-1&is_hidden=0&type=1&comment_display=0&bvid=&pn=${pn}&ps=${ps}`
   let res = await this.axios.get(url)
