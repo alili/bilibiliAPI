@@ -23,6 +23,8 @@ const sendMessage = async function (receiver_id, content) {
       csrf: this.csrf,
     })
   )
+
+  return res.data
 }
 
 module.exports = {
