@@ -11,6 +11,8 @@ const updateLiveRoomName = async function (name) {
       csrf_token: this.csrf,
     })
   )
+
+  return res.data
 }
 
 const stopLive = async function () {
