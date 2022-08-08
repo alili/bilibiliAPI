@@ -6,14 +6,16 @@ const info = require('./apis/info')
 const comment = require('./apis/comment')
 const message = require('./apis/message')
 
-module.exports = function (myId, cookie, csrf) {
-  function BAPI(myId, cookie, csrf) {
-    this.myId = myId
-    this.cookie = cookie
-    this.csrf = csrf
+module.exports = function (cookie, options) {
+  function BAPI(cookie, options) {
+    this.myId = options.id
+    this.myLiveRoomId = options.liveRoom
+    this.csrf = cookie.bili_jct
     this.axios = axios
 
-    this.axios.defaults.headers['cookie'] = cookie
+    this.axios.defaults.headers['cookie'] = Object.entries(cookie)
+      .map(([key, value]) => `${key}=${value}`)
+      .join(';')
 
     return {
       ...this,
@@ -25,5 +27,5 @@ module.exports = function (myId, cookie, csrf) {
     }
   }
 
-  return new BAPI(myId, cookie, csrf)
+  return new BAPI(cookie, options)
 }
