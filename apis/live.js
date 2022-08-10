@@ -78,7 +78,7 @@ const sendDanmu = async function (roomId, msg) {
         mode: 1,
         fontsize: '25',
         rnd: Math.round(new Date().getTime() / 1000).toString(),
-        roomId: roomId || this.myLiveRoomId,
+        room_id: roomId || this.myLiveRoomId,
         csrf: this.csrf,
         csrf_token: this.csrf,
       })
