@@ -18,7 +18,8 @@
   "homepage": "https://github.com/alili/bilibiliAPI#readme",
   "dependencies": {
     "axios": "^0.27.2",
-    "feishu-sdk": "^1.2.0"
+    "feishu-sdk": "^1.2.0",
+    "nedb-promises": "^6.1.0"
   },
   "devDependencies": {
     "chrome-cookies-secure": "^2.0.0",

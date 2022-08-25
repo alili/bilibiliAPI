@@ -1,8 +1,8 @@
-const qs = require('qs')
+const { http } = require('../client')
 
 const sendMessage = async function (receiver_id, content) {
   let url = 'https://api.vc.bilibili.com/web_im/v1/web_im/send_msg'
-  let res = await this.axios.post(
+  let res = await http.post(
     url,
     qs.stringify({
       msg: {
