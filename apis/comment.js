@@ -7,16 +7,19 @@ const getComment = async function (pn = 1, ps = 10) {
 }
 const replyComment = async function (comment, message) {
   let url = `https://api.bilibili.com/x/v2/reply/add`
+
   let res = await http.post(url, {
     oid: comment.oid,
     type: 1,
     root: comment.root || comment.id,
     parent: comment.id,
+    scene: 'msg',
     message,
     plat: 1,
     jsonp: 'jsonp',
   })
-  return res.data
+
+  return res?.data
 }
 const setLike = async function ({ oid, id }) {
   let url = `https://api.bilibili.com/x/v2/reply/action`

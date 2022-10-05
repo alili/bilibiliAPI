@@ -1,4 +1,5 @@
 const axios = require('axios')
+const qs = require('qs')
 let csrf
 
 // 添加请求拦截器
@@ -32,13 +33,12 @@ axios.interceptors.response.use(
   }
 )
 
-const setCookies = function (token) {
+const setCookies = function (cookie) {
   // TODO 处理超时
   axios.defaults.headers['cookie'] = Object.entries(cookie)
     .map(([key, value]) => `${key}=${value}`)
     .join(';')
   csrf = cookie.bili_jct
-  axios.defaults.headers.common['Authorization'] = `Bearer ${token}`
 }
 
 module.exports = {

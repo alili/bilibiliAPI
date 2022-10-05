@@ -1,4 +1,4 @@
-const axios = require('axios')
+const client = require('./client')
 
 const user = require('./apis/user')
 const live = require('./apis/live')
@@ -11,12 +11,7 @@ module.exports = function (cookie, options) {
   function BAPI(cookie, options) {
     this.myId = options.id
     this.myLiveRoomId = options.liveRoom
-    this.csrf = cookie.bili_jct
-    http = axios
-
-    http.defaults.headers['cookie'] = Object.entries(cookie)
-      .map(([key, value]) => `${key}=${value}`)
-      .join(';')
+    client.setCookies(cookie)
 
     return {
       ...this,
