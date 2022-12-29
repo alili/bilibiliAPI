@@ -13,10 +13,8 @@ const replyComment = async function (comment, message) {
     type: 1,
     root: comment.root || comment.id,
     parent: comment.id,
-    scene: 'msg',
     message,
     plat: 1,
-    jsonp: 'jsonp',
   })
 
   return res?.data
