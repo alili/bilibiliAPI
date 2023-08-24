@@ -2,7 +2,7 @@ const axios = require('axios')
 const qs = require('qs')
 let csrf
 
-// 添加请求拦截器
+// 添加请求拦截器aigc
 axios.interceptors.request.use(
   function (config) {
     if (config.method === 'post') {
