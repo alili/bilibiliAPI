@@ -11,7 +11,7 @@ const online = async function (bvid, cid) {
   let url = `https://api.bilibili.com/x/player/online/total?bvid=${bvid}&cid=${cid}`;
   let res = await http.get(url);
 
-  return res.data.data;
+  return res.data;
 };
 
 module.exports = {
