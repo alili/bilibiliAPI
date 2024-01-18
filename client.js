@@ -1,4 +1,5 @@
 const axios = require('axios')
+const { HttpsProxyAgent } = require('https-proxy-agent');
 const qs = require('qs')
 let csrf
 
@@ -41,7 +42,13 @@ const setCookies = function (cookie) {
   csrf = cookie.bili_jct
 }
 
+const setProxy = function (proxy) {
+  // TODO 处理超时
+  axios.defaults.httpsAgent = new HttpsProxyAgent(proxy);
+}
+
 module.exports = {
   setCookies,
+  setProxy,
   http: axios,
 }

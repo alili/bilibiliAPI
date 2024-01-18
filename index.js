@@ -8,12 +8,16 @@ const message = require("./apis/message");
 const search = require("./apis/search");
 const video = require("./apis/video");
 
-module.exports = function (cookie = "", options = {}) {
-  function BAPI(cookie, options) {
+module.exports = function (options = {}) {
+  function BAPI(options) {
     this.myId = options.id;
     this.myLiveRoomId = options.liveRoom;
-    client.setCookies(cookie);
-
+    if(options.cookie) {
+      client.setCookies(options.cookie);
+    }
+    if(options.proxy) {
+      client.setProxy(options.proxy);
+    }
     return {
       ...this,
       user,
@@ -26,5 +30,5 @@ module.exports = function (cookie = "", options = {}) {
     };
   }
 
-  return new BAPI(cookie, options);
+  return new BAPI(options);
 };
